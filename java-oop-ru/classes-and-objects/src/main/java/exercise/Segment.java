@@ -12,15 +12,15 @@ public class Segment {
     }
 
     public Point getBeginPoint(){
-        return point1;
-    }
-
-    public Point getEndPoint(){
         return point2;
     }
 
+    public Point getEndPoint(){
+        return point1;
+    }
+
  public Point getMidPoint(){
-        return new Point((getBeginPoint().getX()+getBeginPoint().getY()/2),(getEndPoint().getX()+getEndPoint().getY())/2);
+        return new Point((getBeginPoint().getX()+getEndPoint().getX()/2),(getBeginPoint().getY()+getEndPoint().getY())/2);
  }
 }
 // END
