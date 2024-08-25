@@ -19,5 +19,13 @@ public class Point {
     public int getY() {
         return b;
     }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "a=" + a +
+                ", b=" + b +
+                '}';
+    }
 }
 // END
