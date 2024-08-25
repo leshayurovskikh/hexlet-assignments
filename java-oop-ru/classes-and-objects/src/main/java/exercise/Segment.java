@@ -19,7 +19,7 @@ public class Segment {
         return point1;
     }
 
-    public Point getMidPoint(){
+    public Point getMidPoint() {
         return new Point((point1.getX() + point2.getX()) / 2, (point1.getY() + point2.getY()) / 2);
     }
 }
