@@ -13,11 +13,11 @@ int b;
 
 
     public int getX() {
-        return b;
+        return a;
     }
 
     public int getY() {
-        return a;
+        return b;
     }
 }
 // END
