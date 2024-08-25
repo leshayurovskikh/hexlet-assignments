@@ -11,11 +11,11 @@ public class Segment {
         this.point2 = point2;
     }
 
-    public Point getBeginPoint(){
+    public Point getBeginPoint() {
         return point2;
     }
 
-    public Point getEndPoint(){
+    public Point getEndPoint() {
         return point1;
     }
 

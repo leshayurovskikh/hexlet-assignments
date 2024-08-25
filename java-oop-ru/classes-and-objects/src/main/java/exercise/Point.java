@@ -2,8 +2,8 @@ package exercise;
 
 // BEGIN
 public class Point {
-int a;
-int b;
+    int a;
+    int b;
 
 
     public Point(int a, int b) {
