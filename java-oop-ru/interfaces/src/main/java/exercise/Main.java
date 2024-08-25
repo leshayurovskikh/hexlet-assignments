@@ -22,7 +22,7 @@ public class Main {
                 new Cottage(150, 3)
         ));
 
-        List<String> result = App.buildApartmentsList(apartments, 0);
+        List<String> result = App.buildApartmentsList(apartments, 522);
         System.out.println(result);
     }
 
