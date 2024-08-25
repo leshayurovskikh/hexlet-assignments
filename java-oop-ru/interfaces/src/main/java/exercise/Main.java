@@ -21,8 +21,7 @@ public class Main {
                 new Flat(80, 10, 2),
                 new Cottage(150, 3)
         ));
-
-        List<String> result = App.buildApartmentsList(apartments, 522);
+        List<String> result = App.buildApartmentsList(apartments, 545);
         System.out.println(result);
     }
 

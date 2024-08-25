@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 // BEGIN
 public class App{
     public static List<String> buildApartmentsList(List<Home>list, int n) {
-        if(n>0&list.isEmpty()){
+        boolean a = list.isEmpty();
+        if((n>0&n<list.size())&a==false){
 List<String>res = new ArrayList<>();
 Comparator<Home>compareByArea = Comparator.comparing(Home::getArea);
 ArrayList<Home> sortedHome = list.stream()
