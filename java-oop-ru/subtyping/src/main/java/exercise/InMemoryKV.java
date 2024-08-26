@@ -23,13 +23,7 @@ map.remove(key);
 
  @Override
  public String get(String key, String defaultValue) {
-  String result = "";
-  if (map.containsKey(key)){
-   result = map.get(key);
-  }else{
-   result = defaultValue;
-  }
-  return result;
+  return map.getOrDefault(key, defaultValue);
  }
 
  @Override
