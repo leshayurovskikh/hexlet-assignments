@@ -1,12 +1,11 @@
 package exercise;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.Data;
 import lombok.Value;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 // BEGIN
-@Data
+@Value
 // END
 class Car {
     int id;
