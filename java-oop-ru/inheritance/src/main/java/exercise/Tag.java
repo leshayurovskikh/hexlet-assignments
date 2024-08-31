@@ -33,9 +33,9 @@ Map<String,String>atribute;
     @Override
     public String toString() {
         String result=atribute.keySet().stream()
-                .map(entry-> String.format(entry+"="+"\""+atribute.get(entry)+"\""))
-                .collect(Collectors.joining(" "));
-    return "<"+name+" "+result+">";
+                .map(entry-> String.format(" "+entry+"="+"\""+atribute.get(entry)+"\""))
+                .collect(Collectors.joining(""));
+    return "<"+name+result+">";
     }
 }
 // END
