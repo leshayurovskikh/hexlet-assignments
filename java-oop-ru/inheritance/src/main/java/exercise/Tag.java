@@ -35,7 +35,7 @@ Map<String,String>atribute;
         String result=atribute.keySet().stream()
                 .map(entry-> String.format(entry+"="+"\""+atribute.get(entry)+"\""))
                 .collect(Collectors.joining(" "));
-    return "<"+result+">";
+    return "<"+name+" "+result+">";
     }
 }
 // END
