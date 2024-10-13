@@ -1,18 +1,16 @@
 package exercise;
 
-import exercise.dto.users.UsersPage;
-import exercise.model.User;
-import exercise.repository.UserRepository;
-import exercise.util.Security;
 import io.javalin.Javalin;
-import io.javalin.rendering.template.JavalinJte;
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.List;
 import java.util.Objects;
 
 import static io.javalin.rendering.template.TemplateUtil.model;
-import static net.datafaker.internal.helper.WordUtils.capitalize;
+import io.javalin.rendering.template.JavalinJte;
+import exercise.model.User;
+import exercise.dto.users.UsersPage;
+import exercise.repository.UserRepository;
+import org.apache.commons.lang3.StringUtils;
+import exercise.util.Security;
 
 public final class App {
 
@@ -39,7 +37,7 @@ public final class App {
         });
         app.post("/users",ctx ->{
             String firstName = StringUtils.capitalize(ctx.formParam("firstName"));
-            String lastName = StringUtils.capitalize(ctx.formParam("lastName"));
+            String lastName =StringUtils.capitalize(ctx.formParam("lastName"));
             String email = Objects.requireNonNull(ctx.formParam("email")).toLowerCase().trim();
             String password = Security.encrypt(Objects.requireNonNull(ctx.formParam("password")));
 

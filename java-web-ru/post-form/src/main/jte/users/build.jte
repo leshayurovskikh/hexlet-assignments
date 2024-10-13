@@ -1,6 +1,3 @@
-
-
-
 @template.layout.page(
        content = @`
     <form action="/users" method="post">
