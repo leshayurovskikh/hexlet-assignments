@@ -1,3 +1,6 @@
+
+
+
 @template.layout.page(
        content = @`
     <form action="/users" method="post">
@@ -27,3 +30,4 @@
             </div>
         <input type="submit" value="Sign up" />
     </form>
+`)
