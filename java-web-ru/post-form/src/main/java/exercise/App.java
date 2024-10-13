@@ -3,10 +3,13 @@ package exercise;
 import exercise.dto.users.UsersPage;
 import exercise.model.User;
 import exercise.repository.UserRepository;
+import exercise.util.Security;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinJte;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 import static io.javalin.rendering.template.TemplateUtil.model;
 import static net.datafaker.internal.helper.WordUtils.capitalize;
@@ -34,17 +37,15 @@ public final class App {
         app.get("/users/build",ctx -> {
             ctx.render("users/build.jte");
         });
-        app.post("/users", ctx -> {
-            var firstName = ctx.formParam("firstName");
-            String capitalizedName = capitalize(firstName);
-            var lastName = ctx.formParam("lastName");
-            String capitalizedLastName = capitalize(lastName);
-            var email = ctx.formParam("email");
-            var password = ctx.formParam("password").toLowerCase().trim();
-            var passwordConfirmation = ctx.formParam("passwordConfirmation");
+        app.post("/users",ctx ->{
+            String firstName = StringUtils.capitalize(ctx.formParam("firstName"));
+            String lastName = StringUtils.capitalize(ctx.formParam("lastName"));
+            String email = Objects.requireNonNull(ctx.formParam("email")).toLowerCase().trim();
+            String password = Security.encrypt(Objects.requireNonNull(ctx.formParam("password")));
 
-            var user = new User(capitalizedName, capitalizedLastName, email, password);
+            User user = new User(firstName,lastName,email,password);
             UserRepository.save(user);
+
             ctx.redirect("/users");
         });
         // END
