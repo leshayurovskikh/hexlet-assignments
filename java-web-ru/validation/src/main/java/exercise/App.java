@@ -32,7 +32,8 @@ public final class App {
 
         // BEGIN
         app.get("articles/build", ctx -> {
-            ctx.render("articles/build.jte");
+            var page = new BuildArticlePage();
+            ctx.render("articles/build.jte"), model("page", page));
         });
         app.post("articles", ctx -> {
             String title = ctx.formParamAsClass("title", String.class).get();
@@ -50,6 +51,7 @@ public final class App {
             ctx.redirect("/articles");
             } catch (ValidationException e) {
                 var page = new BuildArticlePage(title, content, e.getErrors());
+                ctx.status(422);
                 ctx.render("articles/build.jte", model("page", page));
             }
         });
