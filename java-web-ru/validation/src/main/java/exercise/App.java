@@ -31,9 +31,9 @@ public final class App {
         });
 
         // BEGIN
-        app.get("articles/build", ctx -> {
+        app.get("/articles/build", ctx -> {
             var page = new BuildArticlePage();
-           ctx.render("articles/build.jte", model("page", page));
+            ctx.render("articles/build.jte", Collections.singletonMap("page", page));
         });
 
         app.post("/articles", ctx -> {
@@ -42,7 +42,6 @@ public final class App {
                         .check(value -> value.length() >= 2, "Название не должно быть короче двух символов")
                         .check(value -> !ArticleRepository.existsByTitle(value), "Статья с таким названием уже существует")
                         .get();
-
                 var content = ctx.formParamAsClass("content", String.class)
                         .check(value -> value.length() >= 10, "Статья должна быть не короче 10 символов")
                         .get();
@@ -50,12 +49,11 @@ public final class App {
                 var article = new Article(title, content);
                 ArticleRepository.save(article);
                 ctx.redirect("/articles");
-
             } catch (ValidationException e) {
                 var title = ctx.formParam("title");
                 var content = ctx.formParam("content");
                 var page = new BuildArticlePage(title, content, e.getErrors());
-                ctx.render("articles/build.jte", model("page", page)).status(422);
+                ctx.render("articles/build.jte", Collections.singletonMap("page", page)).status(422);
             }
         });
         // END
