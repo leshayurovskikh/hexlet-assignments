@@ -2,6 +2,8 @@ package exercise;
 
 import io.javalin.Javalin;
 import io.javalin.validation.ValidationException;
+
+import java.util.Collections;
 import java.util.List;
 import exercise.model.Article;
 import exercise.dto.articles.ArticlesPage;
@@ -63,6 +65,6 @@ public final class App {
 
     public static void main(String[] args) {
         Javalin app = getApp();
-        app.start(7070);
+        app.start(7000);
     }
 }
