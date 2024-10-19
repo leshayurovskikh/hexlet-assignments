@@ -13,7 +13,7 @@ public class ProductsRepository extends BaseRepository {
 
     // BEGIN
     public static void save(Product product) throws SQLException {
-        String sql = "INSERT INTO cars (title, price) VALUES (?, ?)";
+        String sql = "INSERT INTO products (title, price) VALUES (?, ?)";
         try (var conn = dataSource.getConnection();
              var preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, product.getTitle());
@@ -31,7 +31,7 @@ public class ProductsRepository extends BaseRepository {
         // END
     }
     public static Optional<Product> find(Long id) throws SQLException {
-        var sql = "SELECT * FROM cars WHERE id = ?";
+        var sql = "SELECT * FROM products WHERE id = ?";
         try (var conn = dataSource.getConnection();
              var stmt = conn.prepareStatement(sql)) {
             stmt.setLong(1, id);
@@ -48,7 +48,7 @@ public class ProductsRepository extends BaseRepository {
     }
 
     public static List<Product> getEntities() throws SQLException {
-        var sql = "SELECT * FROM cars";
+        var sql = "SELECT * FROM products";
         try (var conn = dataSource.getConnection();
              var stmt = conn.prepareStatement(sql)) {
             var resultSet = stmt.executeQuery();
