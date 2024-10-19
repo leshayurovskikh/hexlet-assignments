@@ -13,7 +13,6 @@ import io.javalin.http.NotFoundResponse;
 public class SessionsController {
 
     // BEGIN
-
     public static void index(Context ctx) {
         var page = new MainPage(ctx.sessionAttribute("currentUser"));
         ctx.render("index.jte", model("page", page));
@@ -48,6 +47,5 @@ public class SessionsController {
         ctx.sessionAttribute("currentUser", null);
         ctx.redirect("/");
     }
-        }
     // END
 }
