@@ -6,10 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 public class Post {
-    private String slug;
+    private String id;
     private String title;
     private String body;
 }
