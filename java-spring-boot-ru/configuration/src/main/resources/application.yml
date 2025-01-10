@@ -1,0 +1,17 @@
+---
+# BEGIN
+spring:
+  output:
+    ansi:
+      enabled: true
+
+server:
+  port: 8081
+# END
+
+users:
+  admins:
+    - gjoinsey1@blogger.com
+    - scrosi4@cam.ac.uk
+    - brundle@cam.ac.uk
+
